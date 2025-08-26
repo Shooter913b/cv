@@ -14,6 +14,7 @@ const keyExperiences = [
     subtitle: 'Techno Maniacs · Acton, MA',
     period: 'Sept 2018 – Present',
     location: 'Acton, MA',
+    children: 'Led competitive robotics team to global success while mentoring students and engaging with the community.',
     highlights: [
       'Top-50 globally (7,000+ teams), #1 New England',
       'Earned 25+ awards including Think, Design, and Connect Awards',
@@ -34,6 +35,7 @@ const keyExperiences = [
     subtitle: 'Princeton Apex Labs · Princeton, NJ',
     period: 'Aug 2024 – Present',
     location: 'Princeton, NJ',
+    children: 'Leading research and development for high-precision encoder systems used in FTC robotics odometry.',
     highlights: [
       'Leading R&D for high-precision encoder systems for FTC odometry',
       'Designed manufacturable systems with comprehensive documentation',

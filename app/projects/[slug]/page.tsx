@@ -23,11 +23,7 @@ interface ProjectData {
   role: string;
   teamSize: string;
   stack: string[];
-  links: Array<{
-    label: string;
-    href: string;
-    type: string;
-  }>;
+  links: Record<string, string>;
   impact: string[];
   featured: boolean;
   image: string;
@@ -281,11 +277,11 @@ export default async function ProjectPage({
   const linksArray = frontMatter.links
     ? Object.entries(frontMatter.links)
         .filter(
-          ([_, url]) => url && typeof url === 'string' && (url as string).trim()
+          ([_, url]) => url && typeof url === 'string' && url.trim()
         ) // Filter out empty/null URLs
         .map(([key, url]) => ({
           type: key,
-          href: url as string,
+          href: url,
           label:
             key === 'repo'
               ? 'Repository'
@@ -382,10 +378,10 @@ export default async function ProjectPage({
                   <a
                     href={primaryLink.href}
                     target={
-                      primaryLink.href.startsWith('http') ? '_blank' : undefined
+                      primaryLink.href && primaryLink.href.startsWith('http') ? '_blank' : undefined
                     }
                     rel={
-                      primaryLink.href.startsWith('http')
+                      primaryLink.href && primaryLink.href.startsWith('http')
                         ? 'noopener noreferrer'
                         : undefined
                     }
