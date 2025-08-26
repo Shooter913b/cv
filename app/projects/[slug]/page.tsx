@@ -307,7 +307,8 @@ export default async function ProjectPage({
       : linksArray.find(link => link.type === 'demo') ||
         linksArray.find(link => link.type === 'cad') ||
         linksArray.find(link => link.type === 'repo') ||
-        linksArray[0];
+        linksArray[0] ||
+        null;
 
   const secondaryLink =
     frontMatter.slug === 'techno-maniacs'
@@ -315,7 +316,8 @@ export default async function ProjectPage({
         linksArray.find(link => link.type === 'demo')
       : linksArray.find(link => link.type === 'code') ||
         linksArray.find(link => link.type === 'guide') ||
-        linksArray.find(link => link.type === 'github');
+        linksArray.find(link => link.type === 'github') ||
+        null;
 
   return (
     <>
@@ -374,7 +376,7 @@ export default async function ProjectPage({
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                {primaryLink && primaryLink.href && (
+                {primaryLink && primaryLink.href && primaryLink.label && (
                   <a
                     href={primaryLink.href}
                     target={
@@ -395,7 +397,7 @@ export default async function ProjectPage({
                   </a>
                 )}
 
-                {secondaryLink && secondaryLink.href && (
+                {secondaryLink && secondaryLink.href && secondaryLink.type && secondaryLink.label && (
                   <a
                     href={secondaryLink.href}
                     target={

@@ -102,7 +102,7 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
                     }
 
                     // For local videos, show a generic video placeholder
-                    if (item.src.startsWith('/') || item.src.startsWith('./')) {
+                    if (item.src && (item.src.startsWith('/') || item.src.startsWith('./'))) {
                       return (
                         <div className="w-full h-full bg-surface/80 flex items-center justify-center">
                           <div className="text-text-muted text-center">
