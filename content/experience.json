@@ -1,0 +1,71 @@
+[
+  {
+    "id": "ftc-captain",
+    "title": "FTC Team Captain",
+    "organization": "Techno Maniacs",
+    "location": "Acton, MA",
+    "period": "Sept 2018 – Present",
+    "description": "Led a multidisciplinary robotics team competing in FIRST Tech Challenge, achieving top-tier performance globally while mentoring the next generation of engineers.",
+    "highlights": [
+      "Top-50 globally (7,000+ teams), #1 New England",
+      "Earned 25+ awards including Think, Design, and Connect Awards",
+      "Mentored 20+ students in mechanical design and programming",
+      "Reached 5,000+ youth through outreach and community engagement",
+      "Led mechanical design and autonomous software development",
+      "Grew team from 8 to 15+ members across multiple disciplines"
+    ],
+    "technologies": [
+      "Java",
+      "Android Studio",
+      "CAD",
+      "Onshape",
+      "3D Printing",
+      "CNC",
+      "OpenCV"
+    ],
+    "type": "leadership"
+  },
+  {
+    "id": "princeton-apex",
+    "title": "Director of Encoder Development",
+    "organization": "Princeton Apex Labs",
+    "location": "Princeton, NJ",
+    "period": "Aug 2024 – Present",
+    "description": "Leading R&D for high-precision encoder systems specifically designed for FTC odometry applications, focusing on manufacturable designs with comprehensive documentation.",
+    "highlights": [
+      "Designed high-precision encoder for FTC odometry applications",
+      "Refined interfaces for optimal integration with existing systems",
+      "Developed manufacturable design with comprehensive documentation",
+      "Collaborated with manufacturing team to ensure production feasibility"
+    ],
+    "technologies": [
+      "CAD/CAM",
+      "Fusion 360",
+      "Manufacturing",
+      "PCB Design",
+      "Precision Engineering"
+    ],
+    "type": "engineering"
+  },
+  {
+    "id": "uw-madison",
+    "title": "Student",
+    "organization": "University of Wisconsin-Madison",
+    "location": "Madison, WI",
+    "period": "Expected 2028",
+    "description": "Pursuing dual degree in Aerospace Engineering and Computer Science with focus on autonomous systems and robotics applications.",
+    "highlights": [
+      "Aerospace Engineering and Computer Science double major",
+      "Coursework in control systems, flight dynamics, and software engineering",
+      "Active in robotics research and development projects"
+    ],
+    "technologies": [
+      "MATLAB",
+      "Python",
+      "C++",
+      "Control Systems",
+      "Flight Dynamics"
+    ],
+    "type": "education"
+  }
+]

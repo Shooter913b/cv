@@ -1,0 +1,25 @@
+{
+  "social": {
+    "github": "https://github.com/yourusername",
+    "linkedin": "https://linkedin.com/in/yourusername",
+    "email": "your.email@example.com",
+    "resume": "/resume.pdf"
+  },
+  "projects": {
+    "ftc_resources": "https://github.com/yourusername/ftc-resources",
+    "encoder_docs": "https://docs.google.com/document/encoder-development",
+    "odometry_paper": "https://docs.google.com/document/linear-odo-paper",
+    "portfolio_source": "https://github.com/yourusername/portfolio"
+  },
+  "organizations": {
+    "techno_maniacs": "https://technomaniacs.org",
+    "princeton_apex": "https://princetonapex.com",
+    "uw_madison": "https://wisc.edu"
+  },
+  "external": {
+    "first_tech_challenge": "https://firstinspires.org/robotics/ftc",
+    "ftc_docs": "https://ftc-docs.firstinspires.org",
+    "onshape": "https://onshape.com",
+    "fusion_360": "https://autodesk.com/fusion-360"
+  }
+}

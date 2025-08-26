@@ -1,0 +1,142 @@
+---
+title: 'Linear Odo'
+period: 'June 2023 – Apr 2024'
+status: 'completed'
+summary: 'Linear-rail odometry system achieving ~10× drift reduction (≈10" → `<1"`) for precise autonomous navigation.'
+description: 'Revolutionary odometry tracking system using linear rail mechanics to eliminate wheel slippage and dramatically improve autonomous navigation precision for FTC robotics.'
+role: 'Founder'
+teamSize: 1
+stack:
+  [
+    'CAD/CAM',
+    'Onshape',
+    'CNC Machining',
+    'Precision Engineering',
+    'Java',
+    'Control Systems',
+  ]
+links:
+  cad: 'https://cad.onshape.com/documents/9ae07698df16f89c5db4db15/w/78e10b681a52f79034216366/e/e48bf0eaaea74822aac49fa8?renderMode=0&uiState=68ac07e706f3a51da39d4502'
+  docs: 'https://docs.google.com/document/linear-odo-paper'
+  github: 'https://gist.github.com/Shooter913b/4c46c976b6bd960b2b3b59592656a9ae'
+impact:
+  - '~10× drift reduction (≈10" → `<1"`)'
+  - 'Adopted by 15+ competitive teams'
+  - 'Published in FTC technical resources'
+featured: true
+image: '/projects/linear-odo/thumbnail.jpg'
+gallery:
+  - type: 'video'
+    src: '/projects/linear-odo/example.mp4'
+    title: 'Final Integrated Example'
+    description: 'How my team used this odometer'
+    thumbnail: '/projects/linear-odo/example-thumbnail.jpeg'
+  - type: 'video'
+    src: '/projects/linear-odo/test-example.mp4'
+    title: 'Linear Motion Showcase'
+    description: 'Example of how it works'
+    thumbnail: '/projects/linear-odo/test-example-thumbnail.jpeg'
+  - type: 'video'
+    src: '/projects/linear-odo/prototype.mp4'
+    title: 'Early Prototype'
+    description: 'An early version used on an old robot for testing'
+    thumbnail: '/projects/linear-odo/prototype-thumbnail.jpeg'
+tags: ['FTC', 'Precision Engineering', 'Autonomous Systems', 'Innovation']
+---
+
+## The Problem
+
+Traditional FTC odometry systems rely on omni-wheels or tracking wheels that maintain contact with the field through spring tension or dead weight. This approach introduces several critical limitations:
+
+- **Wheel slippage** during rapid acceleration or direction changes
+- **Inconsistent contact pressure** leading to variable tracking accuracy
+- **Drift accumulation** over long autonomous periods
+- **Field surface dependency** affecting reliability across different venues
+
+Teams experienced drift errors of 6-12 inches during typical 30-second autonomous periods, making precise navigation nearly impossible for complex multi-element routines.
+
+## Innovation: Linear Rail Mechanics
+
+The Linear Odo system eliminates radial-based tracking entirely, instead using precision linear rails that physically constrain movement to exact geometric relationships.
+
+### Core Principle
+
+the radial movement of traditional odometers can cause slight drifts and loss of contact with the floor:
+
+1. **Precision Linear rails**: Industrial-grade components with `<0.001"` play that are affordable
+2. **Magnetic Encoders**: Direct position feedback without mechanical slip
+3. **Rigid Steel Frame**: Eliminates compliance-based tracking errors
+
+### Technical Implementation
+
+The mechanism consists of:
+
+- **Primary Rails**: 55mm linear rails with precision ball bearings
+- **Encoder Mount**: custom 3d printed enclosure with magnet directly attached on the wheel
+- **Contact System**: Spring-loaded contact points maintaining field reference
+- **Data Processing**: Real-time position fusion with IMU data through pinpoint and other libraries
+
+### Software Integration
+
+The system integrates with existing FTC control systems through:
+
+## TODO
+
+## Testing & Validation
+
+### Precision Testing
+
+Controlled tests measured system accuracy across various scenarios:
+
+- **Straight Path**: 3-5x better
+- **Simple Shape Path**(Square): 5-7x better
+- **Complex Path**(Spline Curve): 3-4x better
+
+### Real-World Performance
+
+Season-long data from implementing teams showed:
+
+- **Autonomous Success Rate**: tracking rarely became the cause of major problems
+- **Precision Movements**: Sub-inch accuracy maintained
+- **Reliability**: Zero mechanical failures across 100+ matches
+- **Servicablity**: All in one module which makes it very easy to replace
+
+## Engineering Challenges & Solutions
+
+### Challenge 1: Field Interaction
+
+**Problem**: Maintaining consistent contact with varying field surfaces without having too much force that binding occurs
+**Solution**: Rubber bands instead of springs to infinetly adjust the tension in the system
+
+### Challenge 2: Dynamic Loading
+
+**Problem**: Buckling on strafes or moving while turning
+**Solution**: Switched from community standard omni wheel to new cheaper and better option
+
+### Challenge 3: Manufacturing Precision
+
+**Problem**: Achieving required tolerances with FTC fabrication capabilities
+**Solution**: Referenced sensor manufacturers casing to ensure a perfect fit and proper tracking
+
+### Challenge 4: Integration Complexity
+
+**Problem**: Adding precision system without overwhelming teams
+**Solution**: Works with the most used sensor and the most used localization libraries
+
+## Lessons Learned
+
+### Design Philosophy
+
+1. **Precision vs Complexity**: Advanced systems require proportional documentation
+2. **Manufacturing Reality**: Theoretical performance must meet practical fabrication
+3. **Team Capability**: Solutions must match team skill and resource levels
+4. **Iterative Development**: Complex systems benefit from continued updates and revisions
+
+### Technical Insights
+
+- Linear systems excel in applications requiring absolute precision
+- Mechanical constraints often outperform algorithmic corrections
+- Field-relative measurements provide more stable references than robot-relative
+- Integration complexity can limit adoption despite performance benefits
+
+Linear Odo demonstrates that breakthrough performance improvements often require fundamental reconsideration of accepted approaches, and that precision engineering principles can be successfully adapted to competitive robotics environments.

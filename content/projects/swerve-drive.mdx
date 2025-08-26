@@ -1,0 +1,93 @@
+---
+title: 'Open-Source Swerve Drive'
+slug: 'swerve-drive'
+period: '2021–present (iterative)'
+status: 'active'
+summary: 'A fully 3D-printed, low-cost swerve drive system currently in early development and testing phases.'
+description: 'Early-stage open-source swerve drive project exploring 3D-printed robotics locomotion through affordable components and iterative design.'
+role: 'Founder'
+teamSize: 1
+stack: ['Arduino', 'C++', 'BLDC', '3D Printing', 'CAD', 'Kinematics']
+links:
+  repo: 'https://github.com/shooter913b/open-swerve'
+  cad: 'https://cad.onshape.com/documents/65621dfef14bd69d5c78cb23/w/b50eb60f5dad3b901c542e88/e/d107f0cabc3c59024649c798?renderMode=0&uiState=68ac089224e9267e0fdeb045'
+impact:
+  - 'Early development phase'
+  - 'Experimental design approach'
+  - 'Community feedback integration'
+featured: true
+image: '/projects/swerve-drive/thumbnail.jpg'
+gallery:
+  - type: 'video'
+    src: '/projects/swerve-drive/example.mp4'
+    title: '3D-Printed Swerve Module in action'
+    description: 'Fully 3D-printed swerve drive module with BLDC motors'
+    thumbnail: '/projects/swerve-drive/example-thumbnail.jpeg'
+tags: ['FTC', 'Open Source', 'Hardware', '3D Printing', 'Robotics']
+seo:
+  type: 'SoftwareApplication'
+  applicationCategory: 'Robotics'
+  operatingSystem: 'Hardware + Arduino'
+---
+
+## Problem & Goal
+
+Traditional swerve modules rely on expensive, custom, or obscure parts. That barrier makes "trying swerve" unrealistic for many teams.
+
+**Goal:** a _printable_, _cheap_, and _vendor-accessible_ swerve that lowers the threshold for experimentation. Currently in early development and testing phases.
+
+## Design Approach
+
+- **Fully 3D-printed structure** with commodity hardware; no machining
+- Compact steering stage; printed gear/belt reductions
+- Standard bearings and fasteners (Amazon sourcing)
+- Module designed to be serviceable and hackable
+
+## Hardware
+
+- **Controller:** Arduino (simple C/C++ firmware)
+- **Drive:** Brushless DC motor + ESC
+- **Steer:** BLDC or high-torque servo (variant)
+- **Wiring:** Simple harness + power distribution; optional IMU for field-centric control
+
+## Control & Math
+
+Starter **swerve kinematics** provided in the code:
+
+- Convert desired chassis velocities `(vx, vy, ω)` to **module azimuth** and **wheel speeds**
+- Optional **field-centric** transform using IMU heading
+- Example PID for azimuth and speed with tuning notes
+
+## Starter Kit (for teams)
+
+- **Basic 3D CAD**: STL/STEP + editable source
+- **Bill of Materials** with Amazon links
+- **Wiring diagram** and firmware template
+- **Build & calibration steps** (azimuth zeroing, PID gains, wheel radius)
+
+## Cost & Accessibility
+
+Focused on **low cost** via Amazon and common vendors. Per-module cost target kept intentionally low with upgrade paths for motors, bearings, and encoders.
+
+## Current Development Status
+
+This project is currently in **early development** with active prototyping and testing. The design is being iterated based on initial testing results and community feedback. While the concept shows promise, it's important to note that this is still an experimental approach to swerve drive design.
+
+## Challenges
+
+- Print durability & wear surfaces
+- Backlash and tolerances in printed drivetrains
+- Steering accuracy and sensor choice
+- ESC tuning & current limits
+
+## What I Learned
+
+Open-hardware stewardship, documentation as a product, rapid prototyping loops, and working on complex projects like this requires a strong foundational understanding of the math and kinematics behind it.
+
+## What's Next
+
+Project has been shelved thus far, but pans to completely redesign the module with proper a plug and play code base to support beginners
+
+## Built With
+
+`Arduino` · `C++` · `BLDC Motors` · `3D Printing` · `CAD/CAM` · `Kinematics` · `PID Control`

@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-text-base;
+    background-image:
+      linear-gradient(rgba(0, 200, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 200, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-heading font-bold text-text-base mb-12 text-center;
+  }
+
+  .card {
+    @apply bg-surface/60 backdrop-blur-sm rounded-xl p-6 border border-primary/20 transition-all duration-250 hover:border-primary/40 hover:shadow-neon-sm;
+  }
+
+  .btn-primary {
+    @apply bg-primary/10 text-primary px-5 py-3 rounded-xl font-medium border border-primary/40 hover:shadow-neon transition-all duration-200 backdrop-blur-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-text-muted px-5 py-3 rounded-xl font-medium border border-text-muted/30 hover:border-primary/40 hover:text-primary transition-all duration-200;
+  }
+
+  .neon-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent;
+  }
+
+  .tech-pill {
+    @apply px-3 py-1 bg-surface/80 text-primary text-sm rounded-full border border-primary/30 transition-all duration-200 hover:border-primary/50 hover:shadow-neon-sm;
+  }
+
+  .stat-badge {
+    @apply inline-flex items-center px-3 py-1 bg-accent/10 text-accent text-sm rounded-full border border-accent/30 font-medium;
+  }
+
+  .timeline-dot {
+    @apply w-4 h-4 bg-primary rounded-full border-4 border-bg shadow-neon-sm;
+  }
+
+  .glass-header {
+    @apply bg-surface/60 backdrop-blur-md border-b border-primary/20;
+  }
+
+  .nav-link {
+    @apply text-text-muted hover:text-primary transition-colors duration-200 relative;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-full h-0.5 bg-primary shadow-neon-sm;
+  }
+
+  .project-card {
+    @apply relative overflow-hidden rounded-xl bg-surface/40 border border-primary/20 transition-all duration-250 hover:border-primary/40 hover:shadow-neon;
+  }
+
+  .glow-text {
+    @apply text-primary drop-shadow-[0_0_8px_rgba(0,200,255,0.6)];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 0.5s;
+  }
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  @apply outline-2 outline-primary outline-offset-2;
+}
+
+/* Motion-reduce support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

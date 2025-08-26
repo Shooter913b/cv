@@ -1,0 +1,185 @@
+---
+title: 'ComSafe — The Neighborhood App'
+slug: 'comsafe'
+period: '2020–2021 (prototype)'
+status: 'completed'
+summary: 'Community safety and connection during Covid—map pins, alerts, and posts for neighbors.'
+description: 'A neighborhood social platform designed to strengthen community connections during the Covid isolation period, featuring interactive maps, safety alerts, and local communication tools.'
+role: 'Lead / Full-stack Developer'
+teamSize: '3-4'
+stack:
+  [
+    'JavaScript',
+    'Firebase',
+    'Google Maps',
+    'Bootstrap',
+    'HTML',
+    'CSS',
+    'GCP',
+    'Material Design',
+  ]
+links:
+  - { label: 'Live Demo', href: 'https://comsafe.netlify.app', type: 'demo' }
+  - { label: 'View Notes', href: '#demo-notes', type: 'anchor' }
+impact:
+  - 'Multi-page interactive platform'
+  - 'Real-time neighborhood communication'
+  - 'Integrated mapping & social features'
+featured: false
+image: '/projects/comsafe/thumbnail.png'
+gallery:
+  - '/projects/comsafe/dashboard.png'
+  - '/projects/comsafe/map-view.png'
+  - '/projects/comsafe/alerts.png'
+tags: ['Community', 'Social Platform', 'Maps', 'Firebase']
+seo:
+  type: 'SoftwareApplication'
+  applicationCategory: 'Social Networking'
+  operatingSystem: 'Web'
+---
+
+## Inspiration
+
+The Covid-19 pandemic fundamentally changed how we connect with our immediate neighbors. Physical distancing measures led to social isolation, and many communities lost the informal awareness that comes from daily interactions—knowing when neighbors moved, planned gatherings, or needed assistance.
+
+Inspired by Ring's neighborhood security maps, we envisioned something broader: a platform that could restore community connection beyond just security concerns. ComSafe was designed to bridge the gap between digital communication and local, geographical community building.
+
+## What It Does
+
+ComSafe creates a hyperlocal social platform centered around your immediate neighborhood:
+
+### Core Features
+
+- **Neighborhood Feed**: Real-time updates, plans, and assistance requests from verified local residents
+- **Pin-the-Map Posts**: Geographic anchoring for events (birthday parties), requests (borrowing tools), and community information
+- **Emergency & Alert System**: Urgent assistance posts with priority visibility and notification
+- **Neighborhood Access Control**: ID-based community gating to ensure posts reach the right local audience
+- **Email Provisioning**: Address verification system to assign neighborhood IDs and control community access
+
+### Use Cases
+
+- **Community Events**: Pin locations for block parties, yard sales, or informal gatherings
+- **Mutual Aid**: Request and offer help with everything from pet sitting to tool lending
+- **Local Awareness**: Share information about construction, lost pets, or community updates
+- **Safety Communication**: Alert neighbors about concerns while fostering broader community connection
+
+## How We Built It
+
+### Technical Architecture
+
+**Frontend**: Bootstrap-based templates with custom HTML/CSS styling for consistent user experience
+**Backend**: JavaScript application logic integrated with Firebase for real-time data management
+**Infrastructure**: Google Cloud Platform hosting with Maps API integration for geospatial features
+**Database**: Firebase Firestore for scalable, real-time data synchronization across users
+
+### Development Approach
+
+We prioritized rapid prototyping and user validation, building a functional MVP that could demonstrate core community interaction patterns. The architecture emphasized simplicity and reliability over complex features, ensuring smooth performance for essential neighborhood communication needs.
+
+## Challenges We Overcame
+
+### Technical Challenges
+
+**UI Consistency**: Achieving uniform scaling across mixed framework components, particularly with elements like account icons and navigation
+**Map Integration**: Creating seamless interaction between the geographic map interface and the chronological social feed
+**Real-time Synchronization**: Ensuring posts and alerts appeared consistently across all neighborhood users without delays
+
+### Design Challenges
+
+**Community Onboarding**: Balancing accessibility for users with varying technical comfort levels
+**Information Architecture**: Organizing geographic and temporal information in an intuitive, scannable interface
+**Trust Building**: Creating visual and interaction patterns that encouraged authentic neighborhood engagement
+
+## Key Accomplishments
+
+### Technical Achievements
+
+- **Full-Stack Implementation**: Complete multi-page application with user authentication, data persistence, and real-time updates
+- **Interactive Mapping**: Seamless integration between Google Maps and social features, allowing geographic context for all posts
+- **Framework Integration**: Successfully combined Bootstrap templates with custom JavaScript and Firebase, maintaining visual coherence
+
+### Community Impact
+
+- **Prototype Validation**: Demonstrated viability of hyperlocal social platforms during a critical period of social isolation
+- **Scalable Architecture**: Built foundation that could support expansion to multiple neighborhoods and communities
+- **User Experience**: Created intuitive interface that worked for residents with varying technical backgrounds
+
+## What We Learned
+
+### Technical Skills Development
+
+**Frontend Fundamentals**: Gained deep understanding of HTML/CSS foundations and DOM manipulation beyond basic tutorials
+**Template Customization**: Learned to modify and extend Bootstrap templates while maintaining design consistency
+**API Integration**: Experience with Google Maps API and Firebase real-time database implementation
+
+### Team Collaboration
+
+**Skill Diversity Management**: Successfully integrated team members with varying experience levels (including one member transitioning from Java-only background)
+**Documentation and Communication**: Developed processes for knowledge sharing and collaborative problem-solving
+**Framework Trade-offs**: Understanding when mixing frameworks creates complexity versus when it accelerates development
+
+### Product Development
+
+**Community-Centered Design**: Learned to prioritize actual neighbor needs over theoretical feature completeness
+**MVP Scoping**: Experience with defining minimum viable features for social platform validation
+**User Feedback Integration**: Methods for gathering and incorporating community input during development
+
+## What's Next
+
+### Authentication Enhancement
+
+**Secure Login System**: Implement proper password-based authentication with password recovery and security best practices
+**Profile Management**: User profiles with neighborhood verification and community reputation systems
+
+### Enhanced Interaction
+
+**Map Marker Details**: Clicking map pins reveals full post content and author information with engagement options
+**Advanced Notifications**: Customizable alert preferences for different types of community updates and emergency situations
+
+### Community Expansion
+
+**Multi-Domain Features**: Explore applications for workplace communities, hobby groups, and other geographic communities
+**Admin Tools**: Neighborhood moderator capabilities and community management features
+**Integration Options**: APIs for local government services, community organizations, and emergency services
+
+### Technical Improvements
+
+**Mobile Application**: Native mobile app development for improved accessibility and notification delivery
+**Performance Optimization**: Enhanced real-time sync and offline capability for reliable community communication
+**Analytics Dashboard**: Community engagement insights and usage patterns for neighborhood organizers
+
+## Demo Notes
+
+To explore the full ComSafe experience, use the following demo credentials:
+
+**Demo Environment Access:**
+
+- **Username:** `infant.elfrick@gmail.com`
+- **Password:** `password`
+
+### Demo Features Available:
+
+- Browse the neighborhood feed with sample community posts
+- Interact with the map interface and view pinned locations
+- Explore the alert system and community engagement features
+- Test the user interface across different post types and interactions
+
+> **Security Notice**: These are demo-only credentials. In production deployments, rotate or remove these credentials and implement proper user registration workflows.
+
+## Technical Implementation
+
+### Built With
+
+- **Bootstrap**: Responsive framework and component library
+- **HTML/CSS**: Custom styling and layout implementation
+- **JavaScript**: Application logic and user interaction handling
+- **Firebase**: Real-time database and user authentication
+- **Google Cloud Platform**: Application hosting and infrastructure
+- **Google Maps API**: Interactive mapping and geolocation features
+- **Material Design**: UI components and design system integration
+
+### Architecture Decisions
+
+The platform prioritizes community trust and local relevance, with neighborhood-based access control ensuring posts reach the right audience. Real-time synchronization supports immediate communication for both casual community updates and urgent assistance requests.
+
+ComSafe demonstrates how thoughtful technical implementation can strengthen real-world community connections, particularly during times when traditional social interaction patterns are disrupted.
