@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import TechPill from '@/components/ui/TechPill';
-import { cn } from '@/lib/utils';
+import { cn, addCacheBuster } from '@/lib/utils';
 import { ProjectData } from '@/lib/projects';
 
 interface ProjectsPreviewProps {
@@ -39,7 +39,7 @@ const ProjectCard = ({
         <div className="project-card group p-0 overflow-hidden">
           <div className="relative h-64 lg:h-80">
             <Image
-              src={project.image}
+              src={addCacheBuster(project.image)}
               alt={project.title}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"

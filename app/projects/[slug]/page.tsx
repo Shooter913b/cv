@@ -491,7 +491,7 @@ export default async function ProjectPage({
             <div className="mb-12">
               {fixedImage ? (
                 <img
-                  src={fixedImage}
+                  src={`${fixedImage}?v=${Date.now()}`}
                   alt={`${frontMatter.title || 'Project'} screenshot`}
                   className="w-full h-64 md:h-96 object-cover rounded-xl border border-primary/20"
                 />

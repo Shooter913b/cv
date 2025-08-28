@@ -12,6 +12,10 @@ const nextConfig = {
   basePath: '',
   experimental: {
     appDir: true
+  },
+  // Add cache busting for images
+  generateBuildId: async () => {
+    return 'build-' + Date.now();
   }
 };
 
