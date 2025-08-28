@@ -145,9 +145,9 @@ const ProjectCard = ({
         {/* Impact metrics */}
         <div className="flex flex-wrap gap-2">
           {project.impact.map((metric: string, i: number) => (
-            <span key={i} className="stat-badge">
+            <TechPill key={i} glow variant="purple">
               {metric}
-            </span>
+            </TechPill>
           ))}
         </div>
 

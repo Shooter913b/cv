@@ -127,9 +127,9 @@ const SkillCard = ({ category, index }: { category: any; index: number }) => (
                   delay: index * 0.1 + skillIndex * 0.1 + 0.5,
                   ease: 'easeOut',
                 }}
-                className="absolute left-0 top-0 h-full bg-gradient-to-r from-primary to-accent rounded-full"
+                className="absolute left-0 top-0 h-full bg-gradient-to-r from-primary to-purple rounded-full"
               />
-              <div className="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-primary/20 to-accent/20 rounded-full" />
+              <div className="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-primary/20 to-purple/20 rounded-full" />
             </div>
           </motion.div>
         ))}

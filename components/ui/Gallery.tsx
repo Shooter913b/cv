@@ -63,7 +63,7 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
             className="group cursor-pointer"
             onClick={() => setSelectedItem(item)}
           >
-            <div className="relative aspect-video rounded-lg overflow-hidden border border-primary/20 bg-surface/40">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-primary/20 bg-surface/40">
               {item.type === 'image' ? (
                 <img
                   src={item.src}

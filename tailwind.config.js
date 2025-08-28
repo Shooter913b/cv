@@ -18,6 +18,7 @@ module.exports = {
           muted: '#A3B3C2',
         },
         accent: '#34D399',
+        purple: '#A855F7',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -27,6 +28,7 @@ module.exports = {
         neon: '0 0 24px rgba(0,200,255,.35)',
         'neon-sm': '0 0 12px rgba(0,200,255,.25)',
         glow: '0 0 20px rgba(52,211,153,.3)',
+        'purple-sm': '0 0 12px rgba(168,85,247,.25)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',

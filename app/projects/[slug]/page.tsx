@@ -493,7 +493,7 @@ export default async function ProjectPage({
                 <img
                   src={fixedImage}
                   alt={`${frontMatter.title || 'Project'} screenshot`}
-                  className="w-full h-64 md:h-96 object-cover rounded-xl border border-primary/20"
+                  className="w-full aspect-[4/3] object-cover rounded-xl border border-primary/20"
                 />
               ) : (
                 <PlaceholderHero
@@ -508,12 +508,14 @@ export default async function ProjectPage({
 
             {/* Impact Metrics */}
             {frontMatter.impact && Array.isArray(frontMatter.impact) && (
-              <div className="grid sm:grid-cols-3 gap-4 mb-12">
-                {frontMatter.impact.map((metric, index) => (
-                  <Card key={index} className="text-center p-4">
-                    <div className="stat-badge mx-auto">{metric}</div>
-                  </Card>
-                ))}
+              <div className="mb-12">
+                <div className="flex flex-wrap gap-2">
+                  {frontMatter.impact.map((metric, index) => (
+                    <TechPill key={index} glow variant="purple">
+                      {metric}
+                    </TechPill>
+                  ))}
+                </div>
               </div>
             )}
 

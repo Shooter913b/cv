@@ -52,6 +52,10 @@
     @apply px-3 py-1 bg-surface/80 text-primary text-sm rounded-full border border-primary/30 transition-all duration-200 hover:border-primary/50 hover:shadow-neon-sm;
   }
 
+  .impact-pill {
+    @apply px-3 py-1 bg-surface/80 text-purple text-sm rounded-full border border-purple/30 transition-all duration-200 hover:border-purple/50 hover:shadow-purple-sm;
+  }
+
   .stat-badge {
     @apply inline-flex items-center px-3 py-1 bg-accent/10 text-accent text-sm rounded-full border border-accent/30 font-medium;
   }

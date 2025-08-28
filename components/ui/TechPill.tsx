@@ -9,6 +9,7 @@ interface TechPillProps {
   glow?: boolean;
   onClick?: () => void;
   active?: boolean;
+  variant?: 'default' | 'purple';
 }
 
 export default function TechPill({
@@ -17,6 +18,7 @@ export default function TechPill({
   glow = false,
   onClick,
   active = false,
+  variant = 'default',
 }: TechPillProps) {
   const Component = onClick ? motion.button : motion.span;
 
@@ -26,11 +28,13 @@ export default function TechPill({
       whileHover={{ scale: 1.05 }}
       whileTap={onClick ? { scale: 0.95 } : undefined}
       className={cn(
-        'tech-pill',
+        variant === 'purple' ? 'impact-pill' : 'tech-pill',
         {
           'cursor-pointer': onClick,
-          'hover:shadow-neon-sm': glow || onClick,
-          'border-primary/50 bg-primary/20 shadow-neon-sm': active,
+          'hover:shadow-neon-sm': (glow || onClick) && variant === 'default',
+          'hover:shadow-purple-sm': (glow || onClick) && variant === 'purple',
+          'border-primary/50 bg-primary/20 shadow-neon-sm': active && variant === 'default',
+          'border-purple/50 bg-purple/20 shadow-purple-sm': active && variant === 'purple',
         },
         className
       )}
