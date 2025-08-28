@@ -201,17 +201,33 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
                     className="w-full h-auto max-h-[80vh] object-contain"
                     key={`modal-${selectedItem.src}`}
                   />
-                ) : (
-                  <div className="relative aspect-video">
-                    <iframe
-                      src={getYouTubeEmbedUrl(selectedItem.src)}
-                      title={selectedItem.title || 'YouTube video'}
-                      className="w-full h-full"
-                      allowFullScreen
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    />
-                  </div>
-                )}
+                ) : selectedItem.type === 'video' ? (
+                  isYouTubeUrl(selectedItem.src) ? (
+                    <div className="relative aspect-video">
+                      <iframe
+                        src={getYouTubeEmbedUrl(selectedItem.src)}
+                        title={selectedItem.title || 'YouTube video'}
+                        className="w-full h-full"
+                        allowFullScreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      />
+                    </div>
+                  ) : (
+                    <div className="relative aspect-video">
+                      <video
+                        src={selectedItem.src}
+                        title={selectedItem.title || 'Video'}
+                        className="w-full h-full object-contain"
+                        controls
+                        autoPlay
+                        muted
+                        key={`modal-video-${selectedItem.src}`}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  )
+                ) : null}
               </div>
 
               {/* Caption */}
@@ -253,6 +269,19 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
                       >
                         <ExternalLink size={16} />
                         Watch on YouTube
+                      </a>
+                    )}
+                  {selectedItem.type === 'video' &&
+                    selectedItem.src &&
+                    !isYouTubeUrl(selectedItem.src) && (
+                      <a
+                        href={selectedItem.src}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mt-3"
+                      >
+                        <ExternalLink size={16} />
+                        Download Video
                       </a>
                     )}
                 </div>

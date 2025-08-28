@@ -468,7 +468,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
                 open-source hardware.
               </p>
               <Link
-                href="/contact"
+                href="/#contact"
                 className="btn-primary inline-flex items-center gap-2 group"
               >
                 Get In Touch

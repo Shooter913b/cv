@@ -1,13 +1,19 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { loadSlim } from 'tsparticles-slim';
-import Particles from 'react-tsparticles';
+import dynamic from 'next/dynamic';
 import type { Engine } from 'tsparticles-engine';
 import type { ISourceOptions } from 'tsparticles-engine';
 
+// Dynamically import tsparticles to avoid SSR issues
+const Particles = dynamic(() => import('react-tsparticles'), {
+  ssr: false,
+  loading: () => <div className="fixed inset-0 bg-surface pointer-events-none" />
+});
+
 export default function ParticleBackground() {
   const [isVisible, setIsVisible] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Pause particles when tab is hidden for performance
   useEffect(() => {
@@ -16,14 +22,21 @@ export default function ParticleBackground() {
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
+    setIsLoaded(true);
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
   const particlesInit = useCallback(async (engine: Engine) => {
+    const { loadSlim } = await import('tsparticles-slim');
     await loadSlim(engine);
   }, []);
+
+  // Don't render until client-side
+  if (!isLoaded) {
+    return <div className="fixed inset-0 bg-surface pointer-events-none" />;
+  }
 
   // Reduced density on mobile
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
