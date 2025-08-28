@@ -43,21 +43,7 @@ const projectSlugs = [
 export async function getAllProjects(): Promise<ProjectData[]> {
   const projects: ProjectData[] = [];
 
-  // Fix image paths for static export - create unique filenames for root access
-  const fixImagePath = (path: string, slug?: string) => {
-    if (path && path.startsWith('/projects/')) {
-      // Extract the filename from the path
-      const filename = path.split('/').pop();
-      if (filename && slug) {
-        // Create unique filename with project slug prefix
-        const nameWithoutExt = filename.split('.').slice(0, -1).join('.');
-        const ext = filename.split('.').pop();
-        return `/${slug}-${nameWithoutExt}.${ext}`;
-      }
-      return `/${filename}`;
-    }
-    return path;
-  };
+  // Image paths are now correct in MDX files, no fixing needed
 
   for (const slug of projectSlugs) {
     try {
@@ -66,15 +52,10 @@ export async function getAllProjects(): Promise<ProjectData[]> {
       const fileContents = readFileSync(fullPath, 'utf8');
       const { data } = matter(fileContents);
 
-      // Add slug to the data and fix image paths
+      // Add slug to the data
       const projectData = {
         ...data,
         slug,
-        image: data.image ? fixImagePath(data.image, slug) : data.image,
-        gallery: data.gallery?.map((item: any) => ({
-          ...item,
-          src: item.type === 'image' ? fixImagePath(item.src, slug) : item.src
-        })) || data.gallery,
       } as ProjectData;
 
       projects.push(projectData);
@@ -103,30 +84,11 @@ export async function getProject(slug: string): Promise<ProjectData | null> {
     const fileContents = readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
 
-    // Fix image paths for static export - create unique filenames for root access
-    const fixImagePath = (path: string, slug?: string) => {
-      if (path && path.startsWith('/projects/')) {
-        // Extract the filename from the path
-        const filename = path.split('/').pop();
-        if (filename && slug) {
-          // Create unique filename with project slug prefix
-          const nameWithoutExt = filename.split('.').slice(0, -1).join('.');
-          const ext = filename.split('.').pop();
-          return `/${slug}-${nameWithoutExt}.${ext}`;
-        }
-        return `/${filename}`;
-      }
-      return path;
-    };
+    // Image paths are now correct in MDX files, no fixing needed
 
     return {
       ...data,
       slug,
-      image: data.image ? fixImagePath(data.image, slug) : data.image,
-      gallery: data.gallery?.map((item: any) => ({
-        ...item,
-        src: item.type === 'image' ? fixImagePath(item.src, slug) : item.src
-      })) || data.gallery,
     } as ProjectData;
   } catch (error) {
     console.error(`Error loading project ${slug}:`, error);
