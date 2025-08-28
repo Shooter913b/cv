@@ -39,7 +39,7 @@ const ProjectCard = ({
         <div className="project-card group p-0 overflow-hidden">
           <div className="relative h-64 lg:h-80">
             <Image
-              src={addCacheBuster(project.image)}
+              src={project.image}
               alt={project.title}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"

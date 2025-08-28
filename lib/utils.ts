@@ -9,7 +9,8 @@ export function cn(...inputs: ClassValue[]) {
 export function addCacheBuster(url: string): string {
   if (!url) return url;
   const separator = url.includes('?') ? '&' : '?';
-  return `${url}${separator}v=${Date.now()}`;
+  // Use a random number instead of Date.now() to avoid build-time evaluation
+  return `${url}${separator}v=${Math.random().toString(36).substring(7)}`;
 }
 
 export function formatDate(date: string) {
