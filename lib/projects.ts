@@ -43,11 +43,17 @@ const projectSlugs = [
 export async function getAllProjects(): Promise<ProjectData[]> {
   const projects: ProjectData[] = [];
 
-  // Fix image paths for static export - remove /projects/ prefix for root access
-  const fixImagePath = (path: string) => {
+  // Fix image paths for static export - create unique filenames for root access
+  const fixImagePath = (path: string, slug?: string) => {
     if (path && path.startsWith('/projects/')) {
-      // Extract just the filename from the path
+      // Extract the filename from the path
       const filename = path.split('/').pop();
+      if (filename && slug) {
+        // Create unique filename with project slug prefix
+        const nameWithoutExt = filename.split('.').slice(0, -1).join('.');
+        const ext = filename.split('.').pop();
+        return `/${slug}-${nameWithoutExt}.${ext}`;
+      }
       return `/${filename}`;
     }
     return path;
@@ -64,10 +70,10 @@ export async function getAllProjects(): Promise<ProjectData[]> {
       const projectData = {
         ...data,
         slug,
-        image: data.image ? fixImagePath(data.image) : data.image,
+        image: data.image ? fixImagePath(data.image, slug) : data.image,
         gallery: data.gallery?.map((item: any) => ({
           ...item,
-          src: item.type === 'image' ? fixImagePath(item.src) : item.src
+          src: item.type === 'image' ? fixImagePath(item.src, slug) : item.src
         })) || data.gallery,
       } as ProjectData;
 
@@ -97,11 +103,17 @@ export async function getProject(slug: string): Promise<ProjectData | null> {
     const fileContents = readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
 
-    // Fix image paths for static export - remove /projects/ prefix for root access
-    const fixImagePath = (path: string) => {
+    // Fix image paths for static export - create unique filenames for root access
+    const fixImagePath = (path: string, slug?: string) => {
       if (path && path.startsWith('/projects/')) {
-        // Extract just the filename from the path
+        // Extract the filename from the path
         const filename = path.split('/').pop();
+        if (filename && slug) {
+          // Create unique filename with project slug prefix
+          const nameWithoutExt = filename.split('.').slice(0, -1).join('.');
+          const ext = filename.split('.').pop();
+          return `/${slug}-${nameWithoutExt}.${ext}`;
+        }
         return `/${filename}`;
       }
       return path;
@@ -110,10 +122,10 @@ export async function getProject(slug: string): Promise<ProjectData | null> {
     return {
       ...data,
       slug,
-      image: data.image ? fixImagePath(data.image) : data.image,
+      image: data.image ? fixImagePath(data.image, slug) : data.image,
       gallery: data.gallery?.map((item: any) => ({
         ...item,
-        src: item.type === 'image' ? fixImagePath(item.src) : item.src
+        src: item.type === 'image' ? fixImagePath(item.src, slug) : item.src
       })) || data.gallery,
     } as ProjectData;
   } catch (error) {

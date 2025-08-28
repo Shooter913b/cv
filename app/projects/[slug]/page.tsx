@@ -254,20 +254,26 @@ export default async function ProjectPage({
 
   const { frontMatter, content } = project;
 
-  // Fix image paths for static export - remove /projects/ prefix for root access
-  const fixImagePath = (path: string) => {
+  // Fix image paths for static export - create unique filenames for root access
+  const fixImagePath = (path: string, slug?: string) => {
     if (path && path.startsWith('/projects/')) {
-      // Extract just the filename from the path
+      // Extract the filename from the path
       const filename = path.split('/').pop();
+      if (filename && slug) {
+        // Create unique filename with project slug prefix
+        const nameWithoutExt = filename.split('.').slice(0, -1).join('.');
+        const ext = filename.split('.').pop();
+        return `/${slug}-${nameWithoutExt}.${ext}`;
+      }
       return `/${filename}`;
     }
     return path;
   };
 
-  const fixedImage = frontMatter.image ? fixImagePath(frontMatter.image) : null;
+  const fixedImage = frontMatter.image ? fixImagePath(frontMatter.image, frontMatter.slug) : null;
   const fixedGallery = frontMatter.gallery?.map(item => ({
     ...item,
-    src: item.type === 'image' ? fixImagePath(item.src) : item.src
+    src: item.type === 'image' ? fixImagePath(item.src, frontMatter.slug) : item.src
   })) || [];
 
   // Generate JSON-LD for SEO
