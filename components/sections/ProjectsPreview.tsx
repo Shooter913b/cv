@@ -3,11 +3,10 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import TechPill from '@/components/ui/TechPill';
-import { cn, addCacheBuster } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { ProjectData } from '@/lib/projects';
 
 interface ProjectsPreviewProps {
@@ -38,11 +37,10 @@ const ProjectCard = ({
       <div className={cn('relative', !isEven && 'lg:col-start-2')}>
         <div className="project-card group p-0 overflow-hidden">
           <div className="relative h-64 lg:h-80">
-            <Image
+            <img
               src={project.image}
               alt={project.title}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bg/60 via-transparent to-transparent" />
 
