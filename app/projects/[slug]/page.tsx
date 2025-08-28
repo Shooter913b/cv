@@ -254,6 +254,22 @@ export default async function ProjectPage({
 
   const { frontMatter, content } = project;
 
+  // Fix image paths for static export - remove /projects/ prefix for root access
+  const fixImagePath = (path: string) => {
+    if (path && path.startsWith('/projects/')) {
+      // Extract just the filename from the path
+      const filename = path.split('/').pop();
+      return `/${filename}`;
+    }
+    return path;
+  };
+
+  const fixedImage = frontMatter.image ? fixImagePath(frontMatter.image) : null;
+  const fixedGallery = frontMatter.gallery?.map(item => ({
+    ...item,
+    src: item.type === 'image' ? fixImagePath(item.src) : item.src
+  })) || [];
+
   // Generate JSON-LD for SEO
   const jsonLd = frontMatter.seo
     ? {
@@ -485,9 +501,9 @@ export default async function ProjectPage({
 
             {/* Project Image/Placeholder */}
             <div className="mb-12">
-              {frontMatter.image ? (
+              {fixedImage ? (
                 <img
-                  src={frontMatter.image}
+                  src={fixedImage}
                   alt={`${frontMatter.title || 'Project'} screenshot`}
                   className="w-full h-64 md:h-96 object-cover rounded-xl border border-primary/20"
                 />
@@ -517,12 +533,12 @@ export default async function ProjectPage({
             {frontMatter.slug === 'comsafe' && <DemoCredentials />}
 
             {/* Gallery Section */}
-            {frontMatter.gallery && frontMatter.gallery.length > 0 && (
+            {fixedGallery && fixedGallery.length > 0 && (
               <div className="mb-12">
                 <h2 className="text-2xl font-heading font-bold text-text-base mb-6">
                   Gallery
                 </h2>
-                <Gallery items={frontMatter.gallery} columns={3} />
+                <Gallery items={fixedGallery} columns={3} />
               </div>
             )}
 
@@ -540,7 +556,7 @@ export default async function ProjectPage({
                 <MDXRemote
                   source={content}
                   components={{
-                    Gallery: (props: any) => <Gallery {...props} />,
+                    Gallery: (props: any) => <Gallery {...props} items={fixedGallery} />,
                   }}
                 />
               </div>

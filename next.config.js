@@ -9,7 +9,10 @@ const nextConfig = {
     path: ''
   },
   assetPrefix: '',
-  basePath: ''
+  basePath: '',
+  experimental: {
+    appDir: true
+  }
 };
 
 module.exports = nextConfig;

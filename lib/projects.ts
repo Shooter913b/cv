@@ -43,6 +43,16 @@ const projectSlugs = [
 export async function getAllProjects(): Promise<ProjectData[]> {
   const projects: ProjectData[] = [];
 
+  // Fix image paths for static export - remove /projects/ prefix for root access
+  const fixImagePath = (path: string) => {
+    if (path && path.startsWith('/projects/')) {
+      // Extract just the filename from the path
+      const filename = path.split('/').pop();
+      return `/${filename}`;
+    }
+    return path;
+  };
+
   for (const slug of projectSlugs) {
     try {
       const projectsDirectory = join(process.cwd(), 'content/projects');
@@ -50,10 +60,15 @@ export async function getAllProjects(): Promise<ProjectData[]> {
       const fileContents = readFileSync(fullPath, 'utf8');
       const { data } = matter(fileContents);
 
-      // Add slug to the data
+      // Add slug to the data and fix image paths
       const projectData = {
         ...data,
         slug,
+        image: data.image ? fixImagePath(data.image) : data.image,
+        gallery: data.gallery?.map((item: any) => ({
+          ...item,
+          src: item.type === 'image' ? fixImagePath(item.src) : item.src
+        })) || data.gallery,
       } as ProjectData;
 
       projects.push(projectData);
@@ -82,9 +97,24 @@ export async function getProject(slug: string): Promise<ProjectData | null> {
     const fileContents = readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
 
+    // Fix image paths for static export - remove /projects/ prefix for root access
+    const fixImagePath = (path: string) => {
+      if (path && path.startsWith('/projects/')) {
+        // Extract just the filename from the path
+        const filename = path.split('/').pop();
+        return `/${filename}`;
+      }
+      return path;
+    };
+
     return {
       ...data,
       slug,
+      image: data.image ? fixImagePath(data.image) : data.image,
+      gallery: data.gallery?.map((item: any) => ({
+        ...item,
+        src: item.type === 'image' ? fixImagePath(item.src) : item.src
+      })) || data.gallery,
     } as ProjectData;
   } catch (error) {
     console.error(`Error loading project ${slug}:`, error);
