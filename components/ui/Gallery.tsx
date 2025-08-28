@@ -66,9 +66,10 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
             <div className="relative aspect-video rounded-lg overflow-hidden border border-primary/20 bg-surface/40">
               {item.type === 'image' ? (
                 <img
-                  src={`${item.src}?v=${Date.now()}`}
+                  src={item.src}
                   alt={item.alt || item.title || 'Gallery image'}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  key={`gallery-${index}-${item.src}`}
                 />
               ) : (
                 <div className="relative w-full h-full bg-surface/60 flex items-center justify-center">
@@ -77,9 +78,10 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
                     if (item.thumbnail) {
                       return (
                         <img
-                          src={`${item.thumbnail}?v=${Date.now()}`}
+                          src={item.thumbnail}
                           alt={item.alt || item.title || 'Video thumbnail'}
                           className="w-full h-full object-cover"
+                          key={`thumbnail-${index}-${item.thumbnail}`}
                         />
                       );
                     }
@@ -192,11 +194,12 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
               <div className="relative">
                 {selectedItem.type === 'image' ? (
                   <img
-                    src={`${selectedItem.src}?v=${Date.now()}`}
+                    src={selectedItem.src}
                     alt={
                       selectedItem.alt || selectedItem.title || 'Gallery image'
                     }
                     className="w-full h-auto max-h-[80vh] object-contain"
+                    key={`modal-${selectedItem.src}`}
                   />
                 ) : (
                   <div className="relative aspect-video">
