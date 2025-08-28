@@ -66,7 +66,7 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
             <div className="relative aspect-video rounded-lg overflow-hidden border border-primary/20 bg-surface/40">
               {item.type === 'image' ? (
                 <img
-                  src={item.src}
+                  src={`${item.src}?v=${Date.now()}`}
                   alt={item.alt || item.title || 'Gallery image'}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -77,7 +77,7 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
                     if (item.thumbnail) {
                       return (
                         <img
-                          src={item.thumbnail}
+                          src={`${item.thumbnail}?v=${Date.now()}`}
                           alt={item.alt || item.title || 'Video thumbnail'}
                           className="w-full h-full object-cover"
                         />
@@ -192,7 +192,7 @@ const Gallery = ({ items, columns = 3 }: GalleryProps) => {
               <div className="relative">
                 {selectedItem.type === 'image' ? (
                   <img
-                    src={selectedItem.src}
+                    src={`${selectedItem.src}?v=${Date.now()}`}
                     alt={
                       selectedItem.alt || selectedItem.title || 'Gallery image'
                     }
