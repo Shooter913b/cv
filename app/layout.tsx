@@ -23,6 +23,13 @@ export const metadata: Metadata = {
     'software engineering, robotics, open source, FTC, UW Madison, computer science, aerospace',
   authors: [{ name: 'Infant Elfrick Gnanasusairaj' }],
   creator: 'Infant Elfrick Gnanasusairaj',
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+    ],
+    apple: '/favicon.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

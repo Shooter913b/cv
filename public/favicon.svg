@@ -1,0 +1,18 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient for the main icon -->
+  <defs>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00C8FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main icon - much larger stylized "R" for Ricky -->
+  <path d="M4 4h8c3 0 5.5 2.5 5.5 5.5S15 15 12 15h-2.5l5 8h-3.5l-4-7H4V4z" fill="url(#iconGradient)"/>
+  
+  <!-- Tech accent - slightly larger circuit-like elements -->
+  <circle cx="26" cy="8" r="2.5" fill="#00C8FF" opacity="0.9"/>
+  <circle cx="8" cy="24" r="2" fill="#A855F7" opacity="0.9"/>
+  <line x1="22" y1="8" x2="28" y2="8" stroke="#00C8FF" stroke-width="1.5" opacity="0.7"/>
+  <line x1="8" y1="22" x2="8" y2="28" stroke="#A855F7" stroke-width="1.5" opacity="0.7"/>
+</svg>
