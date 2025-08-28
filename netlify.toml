@@ -5,8 +5,8 @@
 [build.environment]
   NODE_VERSION = "18"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+# [[plugins]]
+#   package = "@netlify/plugin-nextjs"
 
 [[headers]]
   for = "/_next/static/*"
@@ -66,4 +66,29 @@
 [[redirects]]
   from = "/projects/*"
   to = "/projects/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.jpg"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.jpeg"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.png"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.gif"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.webp"
+  to = "/:splat"
   status = 200
