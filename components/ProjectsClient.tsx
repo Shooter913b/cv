@@ -55,10 +55,12 @@ const ProjectCard = ({
             {/* Status badge */}
             <div className="absolute top-4 left-4">
               <span
-                className={`px-3 py-1 rounded-full text-xs font-medium border ${
+                className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${
                   project.status === 'active'
-                    ? 'bg-blue-500/10 text-blue-400 border-blue-500/30'
-                    : 'bg-green-500/10 text-green-400 border-green-500/30'
+                    ? 'bg-blue-500/45 text-blue-300 border border-blue-500/55'
+                    : project.slug === 'techno-maniacs'
+                      ? 'bg-purple-dark/45 border-2 border-purple-custom/55 techno-maniacs-light-text-debug'
+                      : 'bg-purple-dark/45 text-purple-dark border-2 border-purple-custom/55'
                 }`}
               >
                 {project.status === 'active' ? 'In Development' : 'Completed'}
@@ -195,10 +197,12 @@ const ProjectCard = ({
                 {/* Status badge */}
                 <div className="absolute top-4 left-4">
                   <span
-                    className={`px-3 py-1 rounded-full text-xs font-medium border ${
+                    className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${
                       project.status === 'active'
-                        ? 'bg-blue-500/10 text-blue-400 border-blue-500/30'
-                        : 'bg-green-500/10 text-green-400 border-green-500/30'
+                        ? 'bg-blue-500/45 text-blue-300 border border-blue-500/55'
+                        : project.slug === 'techno-maniacs'
+                          ? 'bg-purple-dark/45 border-2 border-purple-custom/55 techno-maniacs-light-text-debug'
+                          : 'bg-purple-dark/45 text-purple-dark border-2 border-purple-custom/55'
                     }`}
                   >
                     {project.status === 'active'

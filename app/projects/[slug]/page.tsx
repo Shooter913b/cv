@@ -358,10 +358,12 @@ export default async function ProjectPage({
                 <span className="w-1 h-1 bg-primary rounded-full" />
                 <span>Team of {frontMatter.teamSize}</span>
                 <span
-                  className={`px-2 py-1 rounded-full text-xs font-medium ${
+                  className={`px-2 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${
                     frontMatter.status === 'completed'
-                      ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                      : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                      ? frontMatter.slug === 'techno-maniacs'
+                        ? 'bg-purple-dark/45 border-2 border-purple-custom/55 techno-maniacs-light-text-debug'
+                        : 'bg-purple-dark/45 text-purple-dark border-2 border-purple-custom/55'
+                      : 'bg-blue-500/45 text-blue-300 border border-blue-500/55'
                   }`}
                 >
                   {frontMatter.status === 'completed'

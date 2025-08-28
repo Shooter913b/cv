@@ -19,6 +19,9 @@ module.exports = {
         },
         accent: '#34D399',
         purple: '#A855F7',
+        'purple-custom': '#A855F7',
+        'purple-dark': '#7C3AED',
+        'purple-light': '#C084FC',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

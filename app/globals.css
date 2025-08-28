@@ -56,6 +56,14 @@
     @apply px-3 py-1 bg-surface/80 text-purple text-sm rounded-full border border-purple/30 transition-all duration-200 hover:border-purple/50 hover:shadow-purple-sm;
   }
 
+  .techno-maniacs-light-text {
+    color: #E9D5FF !important;
+  }
+
+  .techno-maniacs-light-text-debug {
+    color: #E1C4FE !important;
+  }
+
   .stat-badge {
     @apply inline-flex items-center px-3 py-1 bg-accent/10 text-accent text-sm rounded-full border border-accent/30 font-medium;
   }
