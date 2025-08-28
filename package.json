@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/copy-images-unique.js",
+    "postbuild": "node scripts/copy-media-unique.js",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
