@@ -18,7 +18,7 @@ const keyExperiences = [
     highlights: [
       'Top-50 globally (7,000+ teams), #1 New England',
       'Earned 25+ awards including Think, Design, and Connect Awards',
-      'Mentored 20+ students in mechanical design and programming',
+      'Mentored 20+ students in Computer Programming, Computer Aided Design (CAD), and Engineering Principles',
       'Reached 5,000+ youth through outreach and community engagement',
     ],
     technologies: [
